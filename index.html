@@ -48,9 +48,15 @@
             z-index: 0;
         }
 
-        a {
+        .container {
             position: relative;
             z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        a {
             text-decoration: none;
             color: rgba(255, 255, 255, 0.88);
             font-family: 'Syne', sans-serif;
@@ -87,15 +93,40 @@
             width: 100%;
         }
 
+        /* V1: Ultra-wide tracking, pure fade */
+        .subtitle {
+            font-family: 'Syne', sans-serif;
+            font-weight: 400;
+            font-size: clamp(0.5rem, 1.1vw, 0.68rem);
+            color: rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5em;
+            margin-top: 12px;
+            opacity: 0;
+            animation: subtitleArrive 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
         @keyframes arrive {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
+
+        @keyframes subtitleArrive {
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
-    <a href="https://www.linkedin.com/in/manouk-fransen/" target="_blank" rel="noopener">Manouk Fransen</a>
+    <div class="container">
+        <a href="https://www.linkedin.com/in/manouk-fransen/" target="_blank" rel="noopener">Manouk Fransen</a>
+        <p class="subtitle">Product Manager - Data Strategist</p>
+    </div>
 </body>
 </html>
